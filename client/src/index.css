@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-ink: #1d2433;
+  --color-fog: #f1f4f8;
+  --color-line: #dce3eb;
+  --color-muted: #5e6b7e;
+  --color-brand: #0f766e;
+  --color-brand-dark: #0b5c56;
+  --color-saffron: #f5b301;
+  --color-danger: #b42318;
+}
+
+@layer base {
+  body {
+    @apply bg-fog font-sans text-ink antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-dark disabled:cursor-not-allowed disabled:bg-line disabled:text-muted;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-lg border border-line bg-white px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-fog disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .input {
+    @apply w-full rounded-lg border border-line bg-white px-3 py-2 text-sm text-ink placeholder:text-muted;
+  }
+  .card {
+    @apply rounded-xl border border-line bg-white;
+  }
+}
